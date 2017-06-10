@@ -1,0 +1,249 @@
+﻿@model Projekat3_NWT.Models.Property
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>For @Html.DisplayFor(model => model.AvailableFor), @Html.DisplayFor(model => model.Type)</h2>
+
+<div>
+    <h4><i>@Html.DisplayFor(model => model.SquareMeters) m2, &euro; @Html.DisplayFor(model => model.Price)</i></h4>
+    <hr />
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            @Html.DisplayFor(model => model.DescriptionLong)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Property Details</div>
+                <div class="panel-body">
+
+                    <table class="table table-hover table-striped">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @Html.DisplayNameFor(model => model.DateAdded)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.DateAdded)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayNameFor(model => model.AvailableFrom)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.AvailableFrom)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayNameFor(model => model.SquareMeters)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.SquareMeters) m2
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayNameFor(model => model.Price)
+                                </td>
+                                <td>
+                                    &euro; @Html.DisplayFor(model => model.Price)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayNameFor(model => model.NumberOfRooms)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.NumberOfRooms)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayNameFor(model => model.NumberOfBedRooms)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.NumberOfBedRooms)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayNameFor(model => model.NumberOfBathRooms)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.NumberOfBathRooms)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayNameFor(model => model.StoryNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.StoryNumber)/@Html.DisplayFor(model => model.TotalNumberOfStories)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayNameFor(model => model.TypeOfHeating)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.TypeOfHeating)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    @Html.DisplayNameFor(model => model.Furnished)
+                                </td>
+                                <td>
+                                    <span class="glyphicon @(Model.Furnished ? "glyphicon-ok" : "glyphicon-remove")" aria-hidden="true"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayNameFor(model => model.ParkingPlace)
+                                </td>
+                                <td>
+                                    <span class="glyphicon @(Model.ParkingPlace ? "glyphicon-ok" : "glyphicon-remove")" aria-hidden="true"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayNameFor(model => model.Elevator)
+                                </td>
+                                <td>
+                                    <span class="glyphicon @(Model.Elevator ? "glyphicon-ok" : "glyphicon-remove")" aria-hidden="true"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayNameFor(model => model.CameraSystem)
+                                </td>
+                                <td>
+                                    <span class="glyphicon @(Model.CameraSystem ? "glyphicon-ok" : "glyphicon-remove")" aria-hidden="true"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayNameFor(model => model.InterPhone)
+                                </td>
+                                <td>
+                                    <span class="glyphicon @(Model.InterPhone ? "glyphicon-ok" : "glyphicon-remove")" aria-hidden="true"></span>
+                                </td>
+                            </tr>
+
+
+
+
+
+
+
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Contact Information</div>
+                <div class="panel-body">
+                    <table class="table table-hover table-striped">
+                        <tbody>
+                            <tr>
+                                <td>Owner Name</td>
+                                <td>@Html.DisplayFor(model => model.Owner.FirstName) @Html.DisplayFor(model => model.Owner.LastName)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Owner.UserPhoneNumber)</td>
+                                <td>@Html.DisplayFor(model => model.Owner.UserPhoneNumber)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Owner.Email)</td>
+                                <td>@Html.DisplayFor(model => model.Owner.Email)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Owner.Country)</td>
+                                <td>@Html.DisplayFor(model => model.Owner.Country)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-md-6">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Property Location</div>
+                <div class="panel-body">
+                    <div id="map" class="propertyPositionMap" style="height: 530px"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Property @Html.DisplayNameFor(model => model.Address)</div>
+                <div class="panel-body">
+                    <table class="table table-hover table-striped">
+                        <tbody>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Address.Street)</td>
+                                <td>@Html.DisplayFor(model => model.Address.Street)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Address.City)</td>
+                                <td>@Html.DisplayFor(model => model.Address.City)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Address.ZipCode)</td>
+                                <td>@Html.DisplayFor(model => model.Address.ZipCode)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Address.State)</td>
+                                <td>@Html.DisplayFor(model => model.Address.State)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            @Html.Partial("CarouselPropertyPartial", Model.propertyImages)
+        </div>
+    </div>
+
+
+</div>
+
+        <hr />
+        <p>
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+
+<script>
+    propertyLon = @Model.Address.Lon;
+    propertyLat = @Model.Address.Lat;
+
+    noclick = true;
+</script>

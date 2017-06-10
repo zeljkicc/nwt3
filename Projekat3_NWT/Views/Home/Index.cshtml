@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron padding-top-10px margin-top-20px">
+
+    @Html.Partial("../Property/CarouselPartial")
+
+    <h1 class="margin-top-0px text-center">MVC Realty</h1>
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus faucibus orci, sed molestie leo volutpat ut. 
+    Mauris nec nisi nisl. Cras eget ultricies purus. Vestibulum id lacinia nibh, sed aliquet elit. Nam cursus felis ut enim iaculis, 
+    a ornare eros dapibus. Aliquam aliquet pulvinar pulvinar.</p>
+    <p class="text-center"><a href="/Home/About" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2 class="text-center">Newest Properties</h2>
+        <div id="new-properties" >
+            <div class="text-center">
+                <img src="~/Content/images/bx_loader.gif" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h2 class="text-center">Properties for Sale</h2>
+        <div id="sale-properties">
+            <div class="text-center">
+                <img src="~/Content/images/bx_loader.gif" />
+            </div>
+        </div>
+        <p><a class="btn btn-primary btn-block" href="/Property/List?newest=true&availableFor=Sale">More Properties Like This</a></p>
+</div>
+    <div class="col-md-4">
+        <h2 class="text-center">Properties for Rent</h2>
+        <div id="rent-properties">
+            <div class="text-center">
+                <img src="~/Content/images/bx_loader.gif" />
+            </div>
+        </div>
+        <p><a class="btn btn-primary btn-block" href="/Property/List?newest=true&availableFor=Rent">More Properties Like This</a></p>
+</div>
+</div>

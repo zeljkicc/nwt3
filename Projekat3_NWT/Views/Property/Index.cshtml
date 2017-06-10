@@ -1,0 +1,104 @@
+﻿@model PagedList.IPagedList<Projekat3_NWT.Models.Property>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of Properties</h2>
+
+<p>
+    @Html.ActionLink("Add New Property", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+           Date Added 
+           @Html.ActionLink(" ", "Index", new { sortOrder = "" }, new { @class = "glyphicon glyphicon-arrow-down" })
+           @Html.ActionLink(" ", "Index", new { sortOrder = "date_asc" }, new { @class = "glyphicon glyphicon-arrow-up" })
+           
+        </th>
+
+        <th>
+            Available For
+            @Html.ActionLink(" ", "Index", new { sortOrder = "availablefor_desc" }, new { @class = "glyphicon glyphicon-arrow-down" })
+            @Html.ActionLink(" ", "Index", new { sortOrder = "availablefor_asc" }, new { @class = "glyphicon glyphicon-arrow-up" })
+        </th>
+        <th>
+            Type
+            @Html.ActionLink(" ", "Index", new { sortOrder = "type_desc" }, new { @class = "glyphicon glyphicon-arrow-down" })
+            @Html.ActionLink(" ", "Index", new { sortOrder = "type_asc" }, new { @class = "glyphicon glyphicon-arrow-up" })
+        </th>
+
+        <th>
+            Number of Rooms
+            @Html.ActionLink(" ", "Index", new { sortOrder = "rooms_desc" }, new { @class = "glyphicon glyphicon-arrow-down" })
+            @Html.ActionLink(" ", "Index", new { sortOrder = "rooms_asc" }, new { @class = "glyphicon glyphicon-arrow-up" })
+        </th>
+        <th>
+            Square Meters
+            @Html.ActionLink(" ", "Index", new { sortOrder = "squaremeters_desc" }, new { @class = "glyphicon glyphicon-arrow-down" })
+            @Html.ActionLink(" ", "Index", new { sortOrder = "squaremeters_asc" }, new { @class = "glyphicon glyphicon-arrow-up" })
+        </th>
+        <th>
+            Price
+            <spam>@Html.ActionLink(" ", "Index", new { sortOrder = "price_desc" }, new { @class = "glyphicon glyphicon-arrow-down" })</spam>
+            <spam>@Html.ActionLink(" ", "Index", new { sortOrder = "price_asc" }, new { @class = "glyphicon glyphicon-arrow-up" })</spam>
+        </th>
+        <th>
+            Available
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateAdded)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.AvailableFor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfRooms)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.SquareMeters)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+
+        <td>@(item.available ? "Yes" : "No")</td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id }) |
+            @if (item.AvailableFor == "Sale")
+            {
+                @Html.ActionLink("Sold", "Create", "Sale", new { PropertyId = item.Id }, null)
+            }
+            else if(item.AvailableFor == "Rent")
+            {
+                @Html.ActionLink("Rented", "Create", "Rent", new { PropertyId = item.Id }, null)
+            }
+
+        </td>
+    </tr>
+}
+
+</table>
+<br />
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

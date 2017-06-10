@@ -1,0 +1,63 @@
+﻿@model Projekat3_NWT.Models.Rent
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Renting Agreement Details</h2>
+<hr />
+<h3>@Model.Property.Type, &euro;@Model.Property.Price, @Model.Property.SquareMeters m2 </h3>
+<spam>@Html.ActionLink("See full details about this property", "Details", "Property", new
+{ id = Model.Property.Id }, null)</spam>
+<hr />
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MonthlyFee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonthlyFee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.startDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.startDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.endDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.endDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contract.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contract.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contract.content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contract.content)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

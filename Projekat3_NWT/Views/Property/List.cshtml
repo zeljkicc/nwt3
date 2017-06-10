@@ -1,0 +1,151 @@
+﻿@model IEnumerable<Projekat3_NWT.Models.Property>
+
+@{
+    ViewBag.Title = "List";
+}
+
+
+<div class="row margin-top-20px">
+
+    
+
+    <div class="col-md-2" id="filterContainer">
+
+        @Html.Hidden("availableFor", (string)ViewBag.AvailableFor)
+
+        <div class="row">
+            <div class="col-md-12">
+                @Html.Label("Sort order:");
+
+                @Html.DropDownList("sortOrder", ViewData["SortOrderItems"] as SelectList, htmlAttributes: new { @class = "form-control" })
+
+            </div>
+
+        </div>
+
+
+        <h5>Price:</h5>
+        @Html.Label("Price Min", htmlAttributes: new { @class = "control-label" })
+        @Html.Editor("priceMin", new { htmlAttributes = new { @class = "form-control", type = "number", data_value = 0, @Value = 0 } })
+
+        @Html.Label("Price Max", htmlAttributes: new { @class = "control-label" })
+        @Html.Editor("priceMax", new { htmlAttributes = new { @class = "form-control", type = "number", data_value = 0, @Value = 0 } })
+
+        <h5>Square Meters:</h5>
+        @Html.Label("Meters Min", htmlAttributes: new { @class = "control-label" })
+        @Html.Editor("metersMin", new { htmlAttributes = new { @class = "form-control", type = "number", data_value = 0, @Value = 0 } })
+
+        @Html.Label("Meters Max", htmlAttributes: new { @class = "control-label" })
+        @Html.Editor("metersMax", new { htmlAttributes = new { @class = "form-control", type = "number", data_value = 0, @Value = 0 } })
+
+        <h5>Number of Rooms:</h5>
+        @Html.Label("Rooms Min", htmlAttributes: new { @class = "control-label" })
+        @Html.Editor("roomsMin", new { htmlAttributes = new { @class = "form-control", type = "number", data_value = 0, @Value = 0 } })
+
+        @Html.Label("Rooms Max", htmlAttributes: new { @class = "control-label" })
+        @Html.Editor("roomsMax", new { htmlAttributes = new { @class = "form-control", type = "number", data_value = 0, @Value = 0 } })
+
+        <h5>Furnished:</h5>
+        <label>@Html.RadioButton("Furnished", "All", true) All</label>
+        <label>@Html.RadioButton("Furnished", "Yes") Yes</label>
+        <label>@Html.RadioButton("Furnished", "No") No</label>
+
+
+        <div class="form-group">
+            <label for="sel1">Type:</label>
+            <select class="form-control" id="type" name="type">
+                <option value="All">All</option>
+                <option value="Apartment">Apartment</option>
+                <option value="House">House</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="col-md-10">
+
+
+
+
+
+            <ul class="nav nav-pills text-center margin-bottom-10px">
+                <li class="active col-md-6 padding-left-0px padding-right-0px"><a data-toggle="pill" href="#home">List</a></li>
+                <li class="col-md-6 margin-left-0px padding-left-0px padding-right-0px"><a data-toggle="pill" href="#menu1" id="pill-properties-map">Map</a></li>
+            </ul>
+
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <div class="text-center">
+                    <img src="@Url.Content("~/Content/images/bx_loader.gif")" class="loader-img" />
+                </div>
+                <div id="list-container">
+
+                   
+
+                    @foreach (var item in Model)
+            {
+
+
+
+
+                        <div class="panel panel-default margin-bottom-0px property-list-element" data-id="@Html.DisplayFor(modelItem => item.Id)"
+                             data-lon="@Html.DisplayFor(modelItem => item.Address.Lon)" data-lat="@Html.DisplayFor(modelItem => item.Address.Lat)"
+                             data-availablefor="@Html.DisplayFor(modelItem => item.AvailableFor)" data-type="@Html.DisplayFor(modelItem => item.Type)"
+                             data-price="@Html.DisplayFor(modelItem => item.Price)" data-meters="@Html.DisplayFor(modelItem => item.SquareMeters)"
+                             data-rooms="@Html.DisplayFor(modelItem => item.NumberOfRooms)">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                       
+                                        <img class="img-responsive" src="@Url.Content(item.propertyImages.First().url)" />
+                                    </div>
+                                    <div class="col-md-8">
+
+                                        <i>Date Added @Html.DisplayFor(modelItem => item.DateAdded)</i>
+
+                                        <h2>
+                                            @Html.ActionLink("For " + @Html.DisplayFor(modelItem => item.AvailableFor) + ", " + @Html.DisplayFor(modelItem => item.Type), "Details", new { id = item.Id })
+                                        </h2>
+
+                                        <h4>@Html.DisplayFor(modelItem => item.DescriptionShort)</h4>
+
+                                        
+                                        <ul class="nav nav-pills">
+                                            <li class="active"><a data-toggle="pill">&euro; @Html.DisplayFor(modelItem => item.Price)</a></li>
+                                            <li class="active"><a data-toggle="pill">@Html.DisplayFor(modelItem => item.SquareMeters) m2</a></li>
+                                            <li class="active"><a data-toggle="pill">@Html.DisplayFor(modelItem => item.NumberOfRooms) Room(s)</a></li>
+                                            <li class="active"><a data-toggle="pill">@(item.Furnished ? "Furnished" : "Not Furnished")</a></li>
+                                            <li class="active"><a data-toggle="pill">@Html.DisplayFor(modelItem => item.TypeOfHeating)</a></li>
+                                        </ul>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        }
+                    <div id="error-message"></div>
+
+                    </div>
+
+                <button id="load-more-properties" class="btn btn-block btn-primary margin-top-20px" data-value="1">Load More</button>
+                </div>
+            <div id="menu1" class="tab-pane fade">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="map" style="height: 500px"></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+
+
+        </div>
+</div>
+

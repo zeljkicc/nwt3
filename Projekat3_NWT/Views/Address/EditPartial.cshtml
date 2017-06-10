@@ -1,0 +1,60 @@
+﻿@model Projekat3_NWT.Models.Property
+
+
+    <div class="form-horizontal">
+        <h3>Address</h3>
+        <hr />
+        @Html.HiddenFor(model => model.Address.Id)
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.Address.State, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Address.State, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address.State, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.Address.City, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Address.City, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address.City, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.Address.Street, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Address.Street, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address.Street, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.Address.ZipCode, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Address.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address.ZipCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.Address.Lon, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Address.Lon, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address.Lon, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.Address.Lat, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Address.Lat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address.Lat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    </div>
+
+
+

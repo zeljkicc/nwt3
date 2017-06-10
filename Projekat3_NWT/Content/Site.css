@@ -1,0 +1,110 @@
+﻿body {
+    padding-top: 50px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+  /*  max-width: 280px; */
+}
+
+.nav-pills li{
+    margin-bottom:2px;
+} 
+
+.margin-bottom-0px{
+    margin-bottom:0px;
+}
+
+.loader-img{
+    display:none;
+}
+
+.padding-top-10px{
+    padding-top:10px;
+}
+
+.margin-top-0px{
+    margin-bottom:0px;
+}
+
+.bx-wrapper{
+    margin-bottom:10px !important;
+}
+
+footer{
+    background-color: #333333;
+    color:white;
+    margin-bottom:0px;
+    text-align:center;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.navbar-brand{
+    font-size:30px;
+}
+
+.margin-top-20px{
+    margin-top:20px;
+}
+
+.dropdown-menu li a:hover{
+    background-color:black;
+}
+
+.carousel-inner img {
+  margin: auto;
+}
+
+.margin-bottom-10px{
+    margin-bottom: 10px;
+}
+
+.margin-left-0px{
+    margin-left:0px !important;
+}
+
+.padding-left-0px{
+    padding-left:0px;
+}
+
+.padding-right-0px{
+    padding-right:0px;
+}
+
+.img-about{
+    margin:auto;
+    margin-top:20px;
+}
+
+.white-color ul li a{
+    color:white;
+}
+
+.text-white{
+    color:white;
+}
+
+.navbar-nav li a{
+    font-size:18px;
+}
+
+.body-content {
+    min-height: calc(100vh - 150px);
+    /* 71px header + 100px footer = 120px  */
+}

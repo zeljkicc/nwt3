@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+<div class="row margin-top-20px">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h1>Contact Information</h1>
+                <address>
+                    <b>MVC Realty</b><br />
+                    One Street 5, 18000 Nis<br />
+                    <hr class="margin-top-0px"/>
+                    <b>Phone1:</b> 06924923<br />
+                    <b>Phone2:</b> 06294529<br />
+                    <hr class="margin-top-0px" />
+                    <b>Email1:</b> mvcrealty1@mvc.com<br />
+                    <b>Email2:</b> mvcrealty2@mvc.com<br />
+                </address>
+
+                <img class="img-responsive" src="@Url.Content("~/Images/contact-page.jpg")"/>
+
+                </div>
+        </div>
+   </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h3 id="error-message" class="alert-danger"></h3>
+                @Html.Partial(Url.Content("../Message/Create"))
+            </div>
+        </div>
+    </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="map-contact" style="height: 400px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+

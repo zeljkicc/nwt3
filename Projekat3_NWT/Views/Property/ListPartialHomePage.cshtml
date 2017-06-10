@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Projekat3_NWT.Models.Property>
+
+@foreach (var item in Model)
+{
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="property-picture-home">
+            <img class="img-responsive" src="@Url.Content(item.propertyImages.First().url)"/>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <h5><b><a href="/Property/Details/@Html.DisplayFor(modelItem => item.Id)">@Html.DisplayFor(modelItem => item.Type), @Html.DisplayFor(modelItem => item.SquareMeters)m2, &euro;@Html.DisplayFor(modelItem => item.Price), @Html.DisplayFor(modelItem => item.Address.Street), @Html.DisplayFor(modelItem => item.Address.City)</a></b></h5>
+        <i><h7>@Html.DisplayNameFor(model => model.DescriptionShort) @Html.DisplayFor(modelItem => item.DescriptionShort)</h7></i>
+        
+
+                
+    </div>
+</div>
+
+}
+
